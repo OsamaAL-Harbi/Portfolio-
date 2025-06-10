@@ -6,123 +6,98 @@
     <meta name="description" content="Professional CV of Osama Abdulaziz Al-Harbi, IT Student">
     <title>Osama Al-Harbi | IT Professional</title>
     
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style">
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <style>
         :root {
-            --primary-color: #3a86ff;
-            --secondary-color: #8338ec;
-            --accent-color: #ff006e;
-            --text-color: #2b2d42;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --border-color: #e9ecef;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --section-padding: 4rem 0;
-            --border-radius: 8px;
-            --transition: all 0.3s ease;
+            --primary-color: #4e54c8;
+            --secondary-color: #8f94fb;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #6c757d;
         }
-
+        
         [data-theme="dark"] {
-            --primary-color: #4cc9f0;
-            --secondary-color: #b5179e;
-            --accent-color: #f72585;
+            --primary-color: #6a5acd;
+            --secondary-color: #9370db;
+            --dark-color: #121212;
+            --light-color: #1e1e1e;
             --text-color: #f8f9fa;
-            --bg-color: #212529;
-            --card-bg: #343a40;
-            --border-color: #495057;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --text-light: #adb5bd;
         }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary-color);
-        }
-
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: var(--transition);
-            scroll-behavior: smooth;
+            background-color: var(--light-color);
+            transition: all 0.3s ease;
         }
-
-        [dir="rtl"] body {
-            font-family: 'Tahoma', Arial, sans-serif;
+        
+        .rtl {
+            direction: rtl;
         }
-
-        /* Header & Navigation */
+        
+        /* Navbar */
         .navbar {
-            background-color: var(--card-bg) !important;
-            box-shadow: var(--shadow);
-            padding: 1rem;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
         }
-
+        
+        [data-theme="dark"] .navbar {
+            background-color: rgba(30, 30, 30, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
         .navbar-brand {
-            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
-
+        
         .nav-link {
-            color: var(--text-color) !important;
             font-weight: 500;
-            transition: var(--transition);
+            margin: 0 10px;
+            color: var(--text-color);
+            transition: all 0.3s ease;
         }
-
+        
         .nav-link:hover {
-            color: var(--primary-color) !important;
+            color: var(--primary-color);
         }
-
-        .nav-link i {
-            margin-right: 0.5rem;
-        }
-
-        [dir="rtl"] .nav-link i {
-            margin-right: 0;
-            margin-left: 0.5rem;
-        }
-
+        
         /* Hero Section */
         .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 6rem;
-            text-align: center;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-            overflow: hidden;
+            justify-content: center;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -130,254 +105,366 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(58, 134, 255, 0.8) 0%, rgba(131, 56, 236, 0.8) 100%);
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            opacity: 0.1;
             z-index: 0;
         }
-
+        
         .hero-content {
             position: relative;
             z-index: 1;
         }
-
+        
         .hero-icon {
             font-size: 4rem;
-            color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
             animation: bounce 2s infinite;
         }
-
+        
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: white;
+        
+        .hero p.lead {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
             opacity: 0.9;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease 0.3s;
         }
-
-        .hero-btns {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease 0.6s;
-        }
-
-        .hero.animated h1,
-        .hero.animated p,
-        .hero.animated .hero-btns {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Section Styling */
+        
+        /* Sections */
         section {
-            padding: var(--section-padding);
-            scroll-margin-top: 70px;
+            padding: 80px 0;
+            position: relative;
         }
-
+        
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            margin-bottom: 50px;
         }
-
-        .section-title.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-
+        
         .section-title .icon {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
-
-        /* Card Styling */
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+        
+        /* Cards */
         .card {
-            background-color: var(--card-bg);
             border: none;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.9);
             height: 100%;
-            opacity: 0;
-            transform: translateY(30px);
+            overflow: hidden;
         }
-
-        .card.animated {
-            opacity: 1;
-            transform: translateY(0);
+        
+        [data-theme="dark"] .card {
+            background-color: rgba(30, 30, 30, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-
+        
         .card:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
-
-        /* Timeline Styling */
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        /* Timeline */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
-
-        .timeline::before {
+        
+        .timeline::after {
             content: '';
             position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
             top: 0;
+            bottom: 0;
             left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background-color: var(--primary-color);
+            margin-left: -3px;
+            border-radius: 10px;
         }
-
-        [dir="rtl"] .timeline::before {
-            left: auto;
-            right: 50%;
-            transform: translateX(50%);
-        }
-
+        
         .timeline-item {
+            padding: 10px 40px;
             position: relative;
-            margin-bottom: 2rem;
-            width: 100%;
-            padding: 0 1rem;
-            opacity: 0;
-            transition: all 0.8s ease;
+            width: 50%;
+            box-sizing: border-box;
         }
-
-        .timeline-item.animated {
-            opacity: 1;
-        }
-
-        .timeline-item:nth-child(odd) {
-            padding-right: calc(50% + 1rem);
-            text-align: right;
-        }
-
-        [dir="rtl"] .timeline-item:nth-child(odd) {
-            padding-right: 1rem;
-            padding-left: calc(50% + 1rem);
-            text-align: left;
-        }
-
-        .timeline-item:nth-child(even) {
-            padding-left: calc(50% + 1rem);
-            text-align: left;
-        }
-
-        [dir="rtl"] .timeline-item:nth-child(even) {
-            padding-left: 1rem;
-            padding-right: calc(50% + 1rem);
-            text-align: right;
-        }
-
-        .timeline-content {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .timeline-content::before {
+        
+        .timeline-item::after {
             content: '';
             position: absolute;
-            width: 15px;
-            height: 15px;
-            background-color: var(--card-bg);
-            border: 3px solid var(--primary-color);
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            top: 15px;
             border-radius: 50%;
-            top: 20px;
+            z-index: 1;
         }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -33px;
+        
+        .left {
+            left: 0;
         }
-
-        [dir="rtl"] .timeline-item:nth-child(odd) .timeline-content::before {
-            right: auto;
-            left: -33px;
+        
+        .right {
+            left: 50%;
         }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            left: -33px;
+        
+        .left::after {
+            right: -12px;
         }
-
-        [dir="rtl"] .timeline-item:nth-child(even) .timeline-content::before {
-            left: auto;
-            right: -33px;
+        
+        .right::after {
+            left: -12px;
         }
-
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        [data-theme="dark"] .timeline-content {
+            background-color: rgba(30, 30, 30, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
         .timeline-date {
             display: inline-block;
-            padding: 0.3rem 1rem;
-            background-color: var(--primary-color);
+            padding: 5px 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
-
-        /* Certificate Modal Styles */
+        
+        /* Projects */
+        .project-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        [data-theme="dark"] .project-card {
+            background-color: rgba(30, 30, 30, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .project-tags {
+            margin-bottom: 15px;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: rgba(78, 84, 200, 0.1);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        /* Contact Form */
+        .contact-form .form-control {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--text-color);
+        }
+        
+        [data-theme="dark"] .contact-form .form-control {
+            background-color: rgba(30, 30, 30, 0.9);
+            border-color: #444;
+        }
+        
+        .contact-form textarea {
+            resize: none;
+            min-height: 150px;
+        }
+        
+        .contact-info h3 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .contact-info p, .contact-info a {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Certificate Modal */
         .certificate-modal {
             display: none;
             position: fixed;
-            z-index: 2000;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
             overflow: auto;
-            animation: fadeIn 0.3s;
+            padding: 20px;
+            box-sizing: border-box;
         }
-
+        
         .modal-content {
-            margin: auto;
             display: block;
-            max-width: 90%;
-            max-height: 90%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 3px solid var(--primary-color);
-            border-radius: 5px;
+            max-width: 80%;
+            max-height: 80vh;
+            margin: 50px auto;
+            border: 3px solid white;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
-
+        
         .close-modal {
             position: absolute;
             top: 20px;
@@ -386,213 +473,128 @@
             font-size: 35px;
             font-weight: bold;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
-
-        [dir="rtl"] .close-modal {
-            right: auto;
-            left: 30px;
-        }
-
+        
         .close-modal:hover {
             color: var(--primary-color);
-            transform: scale(1.2);
+            transform: rotate(90deg);
         }
-
+        
         .certificate-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            width: 100%;
             text-align: center;
             color: white;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        /* Contact Form */
-        .contact-form {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .contact-form.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .form-control {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.25rem rgba(58, 134, 255, 0.25);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            padding: 2rem 0;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: var(--text-color);
-            font-size: 1.5rem;
-            transition: var(--transition);
-            margin: 0 0.75rem;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 1.2rem;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
+            margin-top: 20px;
         }
-
-        [dir="rtl"] .back-to-top {
-            right: auto;
-            left: 2rem;
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
+        
         /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to { 
-                opacity: 1;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
             }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
         }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-20px); }
-            60% { transform: translateY(-10px); }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .timeline::before {
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p.lead {
+                font-size: 1.3rem;
+            }
+            
+            .timeline::after {
                 left: 31px;
             }
-
-            [dir="rtl"] .timeline::before {
-                left: auto;
-                right: 31px;
-            }
-
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
+            
+            .timeline-item {
+                width: 100%;
                 padding-left: 70px;
-                padding-right: 1rem;
-                text-align: left;
+                padding-right: 25px;
             }
-
-            [dir="rtl"] .timeline-item:nth-child(odd),
-            [dir="rtl"] .timeline-item:nth-child(even) {
-                padding-left: 1rem;
-                padding-right: 70px;
-                text-align: right;
+            
+            .timeline-item::after {
+                left: 18px;
             }
-
-            .timeline-item:nth-child(odd) .timeline-content::before,
-            .timeline-item:nth-child(even) .timeline-content::before {
-                left: -33px;
+            
+            .left::after, .right::after {
+                left: 18px;
             }
-
-            [dir="rtl"] .timeline-item:nth-child(odd) .timeline-content::before,
-            [dir="rtl"] .timeline-item:nth-child(even) .timeline-content::before {
-                left: auto;
-                right: -33px;
-            }
-
-            /* Mobile Modal Adjustments */
-            .modal-content {
-                max-width: 95%;
-                max-height: 80%;
-            }
-
-            .close-modal {
-                font-size: 30px;
-                top: 15px;
-                right: 15px;
-            }
-
-            [dir="rtl"] .close-modal {
-                right: auto;
-                left: 15px;
+            
+            .right {
+                left: 0;
             }
         }
-
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p.lead {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
         @media (max-width: 576px) {
             .hero h1 {
                 font-size: 2rem;
             }
-
-            .hero p {
+            
+            .hero p.lead {
                 font-size: 1rem;
             }
-
+            
+            .hero-btns .btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
             .section-title h2 {
-                font-size: 1.75rem;
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="fas fa-user-shield me-2"></i>
@@ -634,6 +636,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#projects">
+                            <i class="fas fa-project-diagram"></i>
+                            <span class="en">Projects</span>
+                            <span class="ar" style="display:none">المشاريع</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#certifications">
                             <i class="fas fa-certificate"></i>
                             <span class="en">Certifications</span>
@@ -663,17 +672,17 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container hero-content">
-            <div class="hero-icon">
+            <div class="hero-icon float-animation">
                 <i class="fas fa-laptop-code"></i>
             </div>
-            <h1 class="mb-3">
+            <h1 class="mb-3 animate__animated animate__fadeInDown">
                 <span class="en">Hi, I'm <span class="fw-bold">Osama Al-Harbi</span></span>
                 <span class="ar" style="display:none">مرحبًا، أنا <span class="fw-bold">أسامة الحربي</span></span>
             </h1>
-            <p class="lead mb-4 en">Information Technology Student | Cybersecurity Enthusiast | Web Developer</p>
+            <p class="lead mb-4 en animate__animated animate__fadeIn animate__delay-1s">Information Technology Student | Cybersecurity Enthusiast | Web Developer</p>
             <p class="lead mb-4 ar" style="display:none">طالب تكنولوجيا المعلومات | مهتم بأمن المعلومات | مطور ويب</p>
-            <div class="hero-btns">
-                <div class="d-flex justify-content-center gap-3">
+            <div class="hero-btns animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
                     <a href="#contact" class="btn btn-primary btn-lg">
                         <i class="fas fa-paper-plane me-2"></i>
                         <span class="en">Contact Me</span>
@@ -684,6 +693,11 @@
                         <span class="en">Learn More</span>
                         <span class="ar" style="display:none">المزيد</span>
                     </a>
+                    <a href="Osama_Al-Harbi_CV[1].pdf" class="btn btn-light btn-lg" download>
+                        <i class="fas fa-download me-2"></i>
+                        <span class="en">Download CV</span>
+                        <span class="ar" style="display:none">تحميل السيرة الذاتية</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -692,7 +706,7 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <div class="icon">
                     <i class="fas fa-user"></i>
                 </div>
@@ -702,7 +716,7 @@
                 <p class="text-muted ar" style="display:none">تعرف على المزيد عن خلفيتي ومهاراتي</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
                     <div class="card h-100">
                         <div class="card-body">
                             <h3 class="card-title">
@@ -717,7 +731,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left" data-aos-delay="100">
                     <div class="card h-100">
                         <div class="card-body">
                             <h3 class="card-title">
@@ -739,7 +753,7 @@
     <!-- Education Section -->
     <section id="education" class="education">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <div class="icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
@@ -749,7 +763,7 @@
                 <p class="text-muted ar" style="display:none">رحلتي الأكاديمية والتطور المهني</p>
             </div>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item left" data-aos="fade-right">
                     <div class="timeline-content">
                         <span class="timeline-date">2022 - 2026</span>
                         <h3 class="en">Bachelor of Information Technology</h3>
@@ -760,7 +774,7 @@
                         <p class="ar" style="display:none">المعدل: 3.6/5.0 | متخصص في أمن المعلومات</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item right" data-aos="fade-left">
                     <div class="timeline-content">
                         <span class="timeline-date">2025</span>
                         <h3 class="en">Network Security Certification</h3>
@@ -770,7 +784,7 @@
                         <p class="ar" style="display:none">أمن الشبكات والاتصالات</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item left" data-aos="fade-right">
                     <div class="timeline-content">
                         <span class="timeline-date">2025</span>
                         <h3 class="en">Security Principles</h3>
@@ -780,7 +794,7 @@
                         <p class="ar" style="display:none">مفاهيم وممارسات الأمن الأساسية</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item right" data-aos="fade-left">
                     <div class="timeline-content">
                         <span class="timeline-date">2025</span>
                         <h3 class="en">Cybersecurity Fundamentals</h3>
@@ -797,7 +811,7 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <div class="icon">
                     <i class="fas fa-code"></i>
                 </div>
@@ -807,7 +821,7 @@
                 <p class="text-muted ar" style="display:none">الأدوات والتقنيات التي أعمل بها</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100">
                         <div class="card-body">
                             <h3 class="card-title">
@@ -828,7 +842,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="card h-100">
                         <div class="card-body">
                             <h3 class="card-title">
@@ -849,7 +863,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="card h-100">
                         <div class="card-body">
                             <h3 class="card-title">
@@ -870,7 +884,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
                     <div class="card h-100">
                         <div class="card-body">
                             <h3 class="card-title">
@@ -895,10 +909,52 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <div class="icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h2 class="en">My Projects</h2>
+                <h2 class="ar" style="display:none">مشاريعي</h2>
+                <p class="text-muted en">Some of my recent work and projects</p>
+                <p class="text-muted ar" style="display:none">بعض أعمالي ومشاريعي الأخيرة</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Students’ Complaints Management System">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title en">Students’ Complaints Management System</h3>
+                            <h3 class="project-title ar" style="display:none">نظام إدارة شكاوى الطلاب</h3>
+                            <p class="project-description en">
+                                A web-based system that automates and manages student complaints regarding exam marks such as midterm, final, and annual work at the Islamic University.
+                            </p>
+                            <p class="project-description ar" style="display:none">
+                                نظام إلكتروني يهدف إلى إدارة ومعالجة شكاوى الطلاب المتعلقة بالدرجات مثل الاختبارات الفصلية والنهائية والأعمال السنوية في الجامعة الإسلامية.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">MySQL</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary en">View Project</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary ar" style="display:none">عرض المشروع</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Certifications Section -->
     <section id="certifications" class="certifications">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <div class="icon">
                     <i class="fas fa-certificate"></i>
                 </div>
@@ -908,7 +964,7 @@
                 <p class="text-muted ar" style="display:none">شهاداتي المهنية والتدريب</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100" onclick="openCertificate('cert1')" style="cursor: pointer;">
                         <div class="card-body d-flex">
                             <div class="flex-shrink-0 me-3">
@@ -925,7 +981,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card h-100" onclick="openCertificate('cert2')" style="cursor: pointer;">
                         <div class="card-body d-flex">
                             <div class="flex-shrink-0 me-3">
@@ -942,7 +998,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="card h-100" onclick="openCertificate('cert3')" style="cursor: pointer;">
                         <div class="card-body d-flex">
                             <div class="flex-shrink-0 me-3">
@@ -966,7 +1022,7 @@
     <!-- Certificate Modals -->
     <div id="cert1" class="certificate-modal">
         <span class="close-modal" onclick="closeModal('cert1')">&times;</span>
-        <img class="modal-content" href="Network and Communications Security.pdf" alt="Network Security Certificate">
+        <img class="modal-content" src="Network and Communications Security.pdf" alt="Network Security Certificate">
         <div class="certificate-caption en">ISC2 Network Security Certification - 2025</div>
         <div class="certificate-caption ar" style="display:none">شهادة أمن الشبكات من ISC2 - 2025</div>
     </div>
@@ -980,7 +1036,7 @@
 
     <div id="cert3" class="certificate-modal">
         <span class="close-modal" onclick="closeModal('cert3')">&times;</span>
-        <img class="modal-content" src="https://Introduction to Cybersecurity Essentials.pdf/800x600/ff006e/ffffff?text=Cybersecurity+Certificate" alt="Cybersecurity Certificate">
+        <img class="modal-content" src="Introduction to Cybersecurity Essentials.pdf" alt="Cybersecurity Certificate">
         <div class="certificate-caption en">IBM Cybersecurity Fundamentals Certification - 2025</div>
         <div class="certificate-caption ar" style="display:none">شهادة أساسيات أمن المعلومات من آي بي إم - 2025</div>
     </div>
@@ -988,7 +1044,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <div class="icon">
                     <i class="fas fa-envelope"></i>
                 </div>
@@ -998,7 +1054,7 @@
                 <p class="text-muted ar" style="display:none">تواصل معي للفرص أو التعاون</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right">
                     <div class="contact-info">
                         <div class="d-flex mb-4">
                             <div class="flex-shrink-0 me-3">
@@ -1046,7 +1102,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left">
                     <div class="contact-form">
                         <form id="contactForm">
                             <div id="form-status" class="alert d-none"></div>
@@ -1117,8 +1173,19 @@
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <!-- Main JavaScript -->
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
         // Initialize EmailJS
         (function() {
             emailjs.init('4PCPUGc7pFLXc34Q6'); // Replace with your EmailJS user ID
@@ -1219,7 +1286,7 @@
             function init() {
                 setupBackToTop();
                 setupSmoothScrolling();
-                setupScrollAnimation();
+                setupNavbarScroll();
             }
             
             // Back to top button
@@ -1261,23 +1328,15 @@
                 });
             }
             
-            // Animate elements on scroll
-            function setupScrollAnimation() {
-                const animateOnScrollElements = document.querySelectorAll('.section-title, .card, .timeline-item, .contact-form, .contact-info > div');
-                
-                const scrollObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animated');
-                        }
-                    });
-                }, {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -100px 0px'
-                });
-                
-                animateOnScrollElements.forEach(element => {
-                    scrollObserver.observe(element);
+            // Navbar scroll effect
+            function setupNavbarScroll() {
+                const navbar = document.querySelector('.navbar');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
                 });
             }
             
@@ -1412,11 +1471,6 @@
             const currentYear = new Date().getFullYear();
             document.getElementById('current-year').textContent = currentYear;
             document.getElementById('current-year-ar').textContent = currentYear;
-            
-            // Animate hero section elements on load
-            setTimeout(() => {
-                document.querySelector('.hero').classList.add('animated');
-            }, 300);
             
             // Initialize all modules
             themeManager.init();
